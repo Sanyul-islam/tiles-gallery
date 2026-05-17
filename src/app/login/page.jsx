@@ -1,15 +1,32 @@
-import React from 'react';
+"use client";
 
-const loginPage = () => {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-base-200 px-4">
-        <div className="card w-full max-w-md bg-base-100 shadow-2xl">
-          <div className="card-body">
-            {/* Heading */}
-            <h2 className="text-3xl font-bold text-center mb-6">
-              Login Your Account
-            </h2>
+import { useForm } from "react-hook-form";
 
+const LoginPage = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  console.log(watch(["email", "password"]));
+  console.log(errors)
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-base-200 px-4">
+      <div className="card w-full max-w-md bg-base-100 shadow-2xl">
+        <div className="card-body">
+          {/* Heading */}
+          <h2 className="text-3xl font-bold text-center mb-6">
+            Login Your Account
+          </h2>
+
+          <form onSubmit={handleSubmit(onSubmit)}>
             {/* Email */}
             <div className="form-control mb-4">
               <label className="label">
@@ -20,7 +37,16 @@ const loginPage = () => {
                 type="email"
                 placeholder="Enter your email"
                 className="input input-bordered w-full"
+                {...register("email", {
+                  required: "Email is required",
+                })}
               />
+
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.email.message}
+                </p>
+              )}
             </div>
 
             {/* Password */}
@@ -33,7 +59,16 @@ const loginPage = () => {
                 type="password"
                 placeholder="Enter your password"
                 className="input input-bordered w-full"
+                {...register("password", {
+                  required: "Password is required",
+                })}
               />
+
+              {errors.password && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.password.message}
+                </p>
+              )}
             </div>
 
             {/* Register Link */}
@@ -44,13 +79,15 @@ const loginPage = () => {
             </div>
 
             {/* Login Button */}
-            <button className="btn btn-primary w-full">Login</button>
+            <button className="btn btn-primary w-full" type="submit">
+              Login
+            </button>
 
             {/* Divider */}
             <div className="divider">OR</div>
 
             {/* Google Login */}
-            <button className="btn btn-outline w-full">
+            <button type="button" className="btn btn-outline w-full">
               <svg
                 aria-label="Google logo"
                 width="20"
@@ -80,10 +117,11 @@ const loginPage = () => {
               </svg>
               Continue with Google
             </button>
-          </div>
+          </form>
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
-export default loginPage;
+export default LoginPage;
