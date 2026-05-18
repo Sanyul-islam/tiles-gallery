@@ -1,7 +1,12 @@
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 
 export default function Home() {
   return (
-    <h2 className="text-4xl">Tiles Gallery</h2>
+    <>
+    <Navbar></Navbar>
+    <Footer></Footer>
+    </>
   );
 }

@@ -1,6 +1,7 @@
 "use client"
 import { useForm } from 'react-hook-form';
 import { authClient } from '../../lib/auth-client';
+import { useRouter } from 'next/navigation';
 
 const SignupPage = () => {
       const {
@@ -9,7 +10,7 @@ const SignupPage = () => {
         watch,
         formState: { errors },
       } = useForm();
-    
+    const router =useRouter();
       const onSubmit = async (data) => {
         const {name,email,photo,password}= data;
         const { data: res, error } = await authClient.signUp.email({
@@ -17,15 +18,17 @@ const SignupPage = () => {
           email: email, // required
           password: password, // required
           image: photo,
-          callbackURL: "/",
+          callbackURL: "http://localhost:3000/login",
         });
         console.log(res,error);
         if(error){
           alert(error.message)
+          return
         }
         if(res){
           alert("sign-Up successfull")
         }
+        router.push("/login");
       };
     return (
       <div className="min-h-screen flex items-center justify-center bg-base-200 px-4 py-10">
