@@ -5,9 +5,9 @@ import Link from 'next/link';
 
 
 const Navbar = () => {
-    const { data: session } = authClient.useSession();
+    const { data: session, isPending } = authClient.useSession();
     const user = session?.user;
-    const handleLogout = () => {};
+    const handleLogout = async () => await authClient.signOut();
     
   return (
     <div className="navbar bg-base-100 shadow-md px-4 md:px-8">
@@ -46,23 +46,29 @@ const Navbar = () => {
         ) : (
           <>
             {/* Profile */}
-            <Link href="/profile" className="flex items-center gap-2">
-              <Image
-                src={user?.image || "https://i.ibb.co/4pDNDk1/avatar.png"}
-                alt="user"
-                className="w-10 h-10 rounded-full border"
-                height={40}
-                width={40}
-                unoptimized
-              />
+            {isPending ? (
+              <span className="loading loading-spinner loading-lg"></span>
+            ) : (
+              <Link href="/profile" className="flex items-center gap-2">
+                <Image
+                  src={user?.image || "https://i.ibb.co/4pDNDk1/avatar.png"}
+                  alt="user"
+                  className="w-10 h-10 rounded-full border"
+                  height={40}
+                  width={40}
+                  unoptimized
+                />
 
-              <span className="hidden md:block font-medium">{user?.name}</span>
-            </Link>
+                <span className="hidden md:block font-medium">
+                 Hi,{user?.name}
+                </span>
+              </Link>
+            )}
 
             {/* Logout */}
             <button
               onClick={handleLogout}
-              className="btn btn-error btn-sm md:btn-md text-white"
+              className="btn btn-error btn-ghost btn-sm md:btn-md text-black"
             >
               Logout
             </button>

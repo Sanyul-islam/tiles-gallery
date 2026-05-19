@@ -33,10 +33,6 @@ const Footer = () => {
             <Link href="/profile" className="link link-hover">
               My Profile
             </Link>
-
-            <Link href="/contact" className="link link-hover">
-              Contact Us
-            </Link>
           </div>
         </div>
 
@@ -44,9 +40,9 @@ const Footer = () => {
         <div>
           <h3 className="footer-title">Contact Us</h3>
 
-          <p>Email: support@tilehub.com</p>
+          <p>Email: support@tilegallery.com</p>
           <p>Phone: +880 1234-567890</p>
-          <p>Location: Rajshahi, Bangladesh</p>
+          <p>Location: Dhaka, Bangladesh</p>
 
           {/* Social Media */}
           <div className="flex items-center gap-4 mt-5">

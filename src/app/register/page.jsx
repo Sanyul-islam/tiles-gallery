@@ -2,6 +2,8 @@
 import { useForm } from 'react-hook-form';
 import { authClient } from '../../lib/auth-client';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const SignupPage = () => {
       const {
@@ -11,6 +13,7 @@ const SignupPage = () => {
         formState: { errors },
       } = useForm();
     const router =useRouter();
+    const [isShowPassword, setisShowPassword] = useState(false)
       const onSubmit = async (data) => {
         const {name,email,photo,password}= data;
         const { data: res, error } = await authClient.signUp.email({
@@ -105,19 +108,25 @@ const SignupPage = () => {
               </div>
 
               {/* Password */}
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="label-text font-medium">Password</span>
                 </label>
 
                 <input
-                  type="password"
+                  type={isShowPassword?"text":"password"}
                   placeholder="Enter your password"
                   className="input input-bordered w-full"
                   {...register("password", {
                     required: "Password is required",
                   })}
                 />
+                <span
+                  onClick={() => setisShowPassword(!isShowPassword)}
+                  className="absolute right-2 top-9"
+                >
+                  {isShowPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
                 {errors.password && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors.password.message}
@@ -126,7 +135,9 @@ const SignupPage = () => {
               </div>
 
               {/* Register Button */}
-              <button className="btn btn-primary w-full mt-2" type='input'>Register</button>
+              <button className="btn btn-primary w-full mt-2" type="input">
+                Register
+              </button>
             </form>
 
             {/* Login Link */}
