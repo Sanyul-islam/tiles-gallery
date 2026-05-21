@@ -20,7 +20,7 @@ const Navbar = () => {
 
       {/* Center */}
       <div className="navbar-center hidden md:flex">
-        <ul className="menu menu-horizontal px-1 gap-2">
+        <ul className="menu menu-horizontal px-1 gap-2 font-semibold">
           <li>
             <Link href="/">Home</Link>
           </li>
@@ -54,9 +54,9 @@ const Navbar = () => {
                   src={user?.image || "https://i.ibb.co/4pDNDk1/avatar.png"}
                   alt="user"
                   className="w-10 h-10 rounded-full border"
-                  height={40}
-                  width={40}
-                  unoptimized
+                  height={50}
+                  width={50}
+                  
                 />
 
                 <span className="hidden md:block font-medium">
@@ -84,7 +84,7 @@ const Navbar = () => {
 
         <ul
           tabIndex={0}
-          className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+          className="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow bg-base-100 rounded-box w-52"
         >
           <li>
             <Link href="/">Home</Link>

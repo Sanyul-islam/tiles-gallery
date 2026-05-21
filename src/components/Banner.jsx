@@ -30,8 +30,8 @@ const Banner = () => {
       </div>
       <div className="min-h-[5vh] p-2 bg-gray-100">
         <Marquee>
-          A scrolling line of text showing "New Arrivals: [Tile Name] | Weekly
-          Feature: Modern Geometric Patterns | Join the Community..."
+          A scrolling line of text showing &quot;New Arrivals: [Tile Name] | Weekly
+          Feature: Modern Geometric Patterns | Join the Community...&quot;
         </Marquee>
       </div>
     </>
