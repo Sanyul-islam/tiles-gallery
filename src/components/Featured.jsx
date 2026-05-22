@@ -63,7 +63,7 @@ const FeaturedTiles = async() => {
                 </span>
 
                 <Link
-                  href={`/all-tiles/tile/${tile.id}`}
+                  href={`/tile/${tile.id}`}
                   className="btn btn-primary btn-sm"
                 >
                   View Details

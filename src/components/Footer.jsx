@@ -47,7 +47,7 @@ const Footer = () => {
           {/* Social Media */}
           <div className="flex items-center gap-4 mt-5">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/share/17dkZJSFVG/"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-circle btn-sm btn-outline"
@@ -56,7 +56,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="https://github.com"
+              href="https://github.com/Sanyul-islam/"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-circle btn-sm btn-outline"
@@ -65,7 +65,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/sanyul-islam-24a164234?utm_source=share_via&utm_content=profile&utm_medium=member_android"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-circle btn-sm btn-outline"
@@ -74,7 +74,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="https://twitter.com"
+              href="https://x.com/Sanyulislam"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-circle btn-sm btn-outline"
