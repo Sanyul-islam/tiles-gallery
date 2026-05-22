@@ -4,7 +4,8 @@ import { authClient } from "@/lib/auth-client";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 const LoginPage = () => {
   const {
@@ -124,7 +125,7 @@ const LoginPage = () => {
                 className="btn btn-outline w-full"
                 onClick={HandleGooglesignIn}
               >
-                <FaGoogle />
+                <FcGoogle />
                 Continue with Google
               </button>
             </form>

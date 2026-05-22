@@ -3,7 +3,11 @@
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
 
-const Banner = () => {
+const Banner = async () => {
+  
+    const Promise = await fetch("http://localhost:3000/data.json");
+    const tiles = await Promise.json();
+ 
   return (
     <>
       <div className="hero min-h-[80vh] bg-[url('/banner.jpg')] bg-cover bg-center">
@@ -29,9 +33,17 @@ const Banner = () => {
         </div>
       </div>
       <div className="min-h-[5vh] p-2 bg-gray-100">
-        <Marquee>
-          A scrolling line of text showing &quot;New Arrivals: [Tile Name] | Weekly
-          Feature: Modern Geometric Patterns | Join the Community...&quot;
+        <Marquee pauseOnHover="true">
+          {tiles.slice(0, 8).map((tile) => (
+            <p key={tile.id} className="mr-4">
+              &quot;<span className="text-blue-400">New Arrivals:</span>{" "}
+              {tile.title}
+            </p>
+          ))}
+          <p className="mr-4">
+            | <span className="text-blue-400">Weekly Feature:</span> Modern
+            Geometric Patterns | Join the Community...&quot;
+          </p>
         </Marquee>
       </div>
     </>
