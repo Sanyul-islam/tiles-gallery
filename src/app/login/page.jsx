@@ -32,7 +32,7 @@ const LoginPage = () => {
   const searchParams = useSearchParams();
 
   const error = searchParams.get("error");
-  console.log(error);
+  
   return (
     <>
       <div>

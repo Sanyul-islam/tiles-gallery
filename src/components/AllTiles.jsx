@@ -52,7 +52,7 @@ const AllTiles = async ({ searchParams }) => {
                 </span>
 
                 <Link
-                  href={`/all-tiles/${tile.id}`}
+                  href={`/all-tiles/tile/${tile.id}`}
                   className="btn btn-primary btn-sm"
                 >
                   View Details
