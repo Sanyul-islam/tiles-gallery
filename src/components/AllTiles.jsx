@@ -1,44 +1,34 @@
-
 import { TilesData } from "@/lib/data";
+import SearchBar from "@/components/SearchBar";
 import Image from "next/image";
 import Link from "next/link";
 
+const AllTiles = async ({ searchParams }) => {
+  const tiles = await TilesData();
 
-const FeaturedTiles = async() => {
-  const tiles = await TilesData()
+  const params = await searchParams;
+  const query = params?.search?.toLowerCase() || "";
+   
+      const filteredTiles = query
+        ? tiles.filter((tile) => tile.title.toLowerCase().includes(query))
+        : tiles;
 
-    // const Promise = await fetch("http://localhost:3000/data.json");
-    // const tiles = await Promise.json();
     
-//   const [tiles, setTiles] = useState([]);
-
-//   useEffect(() => {
-//     fetch()
-//       .then((res) => res.json())
-//       .then((data) => setTiles(data))
-//       .catch((error) => console.log(error));
-//   }, []);
-
   return (
     <section className="container w-11/12 max-w-7xl mx-auto px-4 py-16">
-      {/* Section Title */}
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold mb-4">Featured Tiles</h2>
-
+      <div className="text-center mb-10">
+        <h2 className="text-4xl font-bold mb-4">All Tiles</h2>
         <p className="text-gray-500 max-w-2xl mx-auto">
           Explore our premium collection of stylish and durable tiles perfect
           for modern interiors and aesthetic spaces.
         </p>
       </div>
 
-      {/* Tiles Grid */}
+      <SearchBar />
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {tiles.slice(0, 4).map((tile) => (
-          <div
-            key={tile.id}
-            className="card bg-base-100 shadow-xl hover:shadow-2xl transition duration-300"
-          >
-            {/* Tile Image */}
+        {filteredTiles.map((tile) => (
+          <div key={tile.id} className="card bg-base-100 shadow-xl">
             <figure className="relative h-64">
               <Image
                 src={tile.image}
@@ -48,7 +38,6 @@ const FeaturedTiles = async() => {
                 unoptimized
               />
             </figure>
-
             {/* Card Body */}
             <div className="card-body">
               <h3 className="card-title">{tile.name}</h3>
@@ -73,8 +62,13 @@ const FeaturedTiles = async() => {
           </div>
         ))}
       </div>
+      {filteredTiles.length === 0 && (
+        <div className="text-center mt-12">
+          <p className="text-lg text-gray-500">No tiles found.</p>
+        </div>
+      )}
     </section>
   );
 };
 
-export default FeaturedTiles;
+export default AllTiles;
