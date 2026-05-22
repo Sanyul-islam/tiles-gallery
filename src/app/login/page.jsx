@@ -97,7 +97,7 @@ const LoginPage = () => {
                 >
                   {isShowPassword ? <FaEyeSlash /> : <FaEye />}
                 </span>
-
+                  
                 {errors.password && (
                   <p className="text-red-500 text-sm mt-1">
                     {errors.password.message}
