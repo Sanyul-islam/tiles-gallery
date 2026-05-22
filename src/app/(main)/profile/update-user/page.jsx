@@ -1,11 +1,11 @@
 import React from 'react';
 
-const DetailsPage = () => {
+const UpdateUser = () => {
     return (
         <div>
-            tiles Id
+            update
         </div>
     );
 };
 
-export default DetailsPage;
+export default UpdateUser;
