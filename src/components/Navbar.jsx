@@ -56,11 +56,10 @@ const Navbar = () => {
                   className="w-10 h-10 rounded-full border"
                   height={50}
                   width={50}
-                  
                 />
 
                 <span className="hidden md:block font-medium">
-                 Hi,{user?.name}
+                  Hi,{user?.name}
                 </span>
               </Link>
             )}
