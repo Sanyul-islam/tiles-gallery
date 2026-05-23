@@ -21,7 +21,7 @@ const SignupPage = () => {
           email: email, // required
           password: password, // required
           image: photo,
-          callbackURL: "http://localhost:3000/login",
+          callbackURL: "https://tiles-gallery-lilac-seven.vercel.app/login",
         });
         console.log(res,error);
         if(error){
