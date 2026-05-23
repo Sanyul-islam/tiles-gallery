@@ -34,7 +34,7 @@ const ProfilePage= ()=> {
 
             <p className="text-gray-500">{user?.email}</p>
 
-            <Link href="profile/update-user" className="btn btn-primary mt-6">
+            <Link href="my-profile/update-user" className="btn btn-primary mt-6">
               Update Profile
             </Link>
           </div>
