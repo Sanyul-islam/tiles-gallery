@@ -4,6 +4,7 @@ import { authClient } from '../../lib/auth-client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const SignupPage = () => {
       const {
@@ -25,11 +26,19 @@ const SignupPage = () => {
         });
         console.log(res,error);
         if(error){
-          alert(error.message)
+          toast.warning(`${error.message}`, {
+            position: "top-center",
+            autoClose: 3000,
+            theme: "colored",
+          });
           return
         }
         if(res){
-          alert("sign-Up successfull")
+          toast.success("sign-Up successfull", {
+            position: "top-center",
+            autoClose: 3000,
+            theme: "colored",
+          });
         }
         router.push("/login");
       };

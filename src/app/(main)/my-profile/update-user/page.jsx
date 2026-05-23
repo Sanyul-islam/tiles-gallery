@@ -3,6 +3,7 @@
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const UpdateUser = () => {
   const { data: session, isPending } = authClient.useSession();
@@ -36,15 +37,23 @@ const UpdateUser = () => {
         image: data.image,
       });
 
-      if (error) {
-        alert(error.message);
-        return;
-      }
+       if (error) {
+         toast.error(error.message, {
+           position: "top-center",
+           autoClose: 3000,
+           theme: "colored",
+         });
+         return;
+       }
 
-      alert("Profile updated successfully!");
+      toast.success("Profile updated successfully!", {
+        position: "top-center",
+        autoClose: 3000,
+        theme: "colored",
+      });
 
     
-    router.push("/profile");
+    router.push("/my-profile");
   };
 
   return (
