@@ -1,12 +1,10 @@
 
-
+import { TilesData } from "@/lib/data";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
 
 const Banner = async () => {
-  
-    const Promise = await fetch("http://localhost:3000/data.json");
-    const tiles = await Promise.json();
+  const tiles = await TilesData();
  
   return (
     <>
