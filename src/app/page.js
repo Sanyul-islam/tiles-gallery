@@ -2,7 +2,7 @@ import Banner from "@/components/Banner";
 import FeaturedTiles from "@/components/Featured";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import { ToastContainer } from "react-toastify";
+
 
 
 export default function Home() {

@@ -24,7 +24,7 @@ const SignupPage = () => {
           image: photo,
           callbackURL: "https://tiles-gallery-lilac-seven.vercel.app/login",
         });
-        console.log(res,error);
+        
         if(error){
           toast.warning(`${error.message}`, {
             position: "top-center",
