@@ -10,7 +10,7 @@ const Navbar = () => {
     const handleLogout = async () => await authClient.signOut();
     
   return (
-    <div className="navbar bg-base-100 shadow-md px-4 md:px-8">
+    <div className="navbar bg-base-100 shadow-md px-4 md:px-8 ">
       <div className="container w-11/12 mx-auto flex">
         {/* Left Side */}
         <div className="navbar-start">
