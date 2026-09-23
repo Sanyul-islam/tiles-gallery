@@ -1,5 +1,6 @@
 import Banner from "@/components/Banner";
 import BrowseCategories from "@/components/BrowseCategories";
+import CTASection from "@/components/CTASection";
 import DesignInspiration from "@/components/DesignInspiration";
 import FeaturedTiles from "@/components/Featured";
 import Footer from "@/components/Footer";
@@ -17,6 +18,7 @@ export default function Home() {
       <BrowseCategories></BrowseCategories>
       <DesignInspiration></DesignInspiration>
       <WhyTilesGallery></WhyTilesGallery>
+      <CTASection></CTASection>
       <Footer></Footer>
     </>
   );

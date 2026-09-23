@@ -31,7 +31,7 @@ const DesignInspiration = () => {
 
             return (
               <Link
-                href="/tiles"
+                href="/all-tiles"
                 key={item.title}
                 className={`group ${
                   index === 0 ? "md:col-span-2 lg:col-span-2" : ""
@@ -87,7 +87,7 @@ const DesignInspiration = () => {
         {/* CTA */}
         <div className="mt-12 text-center">
           <Link
-            href="/tiles"
+            href="/all-tiles"
             className="btn btn-outline btn-primary gap-2 px-7"
           >
             Explore All Designs
